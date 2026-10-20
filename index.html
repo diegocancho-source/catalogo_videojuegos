@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de Catálogo de Videojuegos</title>
+  <!-- Cargamos Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 min-h-screen py-10 px-4 font-sans text-slate-100">
+
+  <div class="max-w-2xl mx-auto bg-slate-900 rounded-2xl shadow-2xl overflow-hidden border border-slate-800">
+    <!-- Cabecera -->
+    <div class="bg-indigo-600 px-8 py-6 text-white text-center">
+      <h1 class="text-2xl font-bold">🎮 Registro y Evaluación de Videojuegos</h1>
+      <p class="text-indigo-200 text-sm mt-1">Conectado a la API REST de FastAPI con Pydantic</p>
+    </div>
+
+    <!-- Formulario de entrada -->
+    <form id="formulario-juego" class="p-8 space-y-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-sm font-semibold text-slate-300 mb-1">Título del Videojuego</label>
+          <input type="text" id="titulo" required placeholder="Ej: Cyber Odyssey"
+                 class="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-slate-300 mb-1">Plataforma</label>
+          <input type="text" id="plataforma" required placeholder="Ej: PC, PS5, Switch"
+                 class="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white">
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="block text-sm font-semibold text-slate-300 mb-1">Precio Base (€)</label>
+          <input type="number" id="precio" step="any" min="0.1" max="150" required value="69.99"
+                 class="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-slate-300 mb-1">Edad PEGI (3-18)</label>
+          <input type="number" id="edad" min="3" max="18" step="1" required value="16"
+                 class="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white">
+        </div>
+        <div>
+          <label class="block text-sm font-semibold text-slate-300 mb-1">Género (Opcional)</label>
+          <input type="text" id="genero" placeholder="Ej: RPG, Acción" value="RPG"
+                 class="w-full px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white">
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3 p-4 bg-slate-800 rounded-lg border border-slate-700">
+        <input type="checkbox" id="multijugador" class="w-5 h-5 text-indigo-600 rounded bg-slate-900 border-slate-700">
+        <label for="multijugador" class="text-sm text-slate-300 cursor-pointer">
+          ¿Dispone de modo multijugador online?
+        </label>
+      </div>
+
+      <button type="submit" id="btn-enviar"
+              class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 shadow-md">
+        🚀 Registrar y Evaluar con la API
+      </button>
+    </form>
+
+    <!-- Panel de Resultados (Oculto inicialmente) -->
+    <div id="panel-resultado" class="hidden p-8 border-t border-slate-800 bg-slate-950">
+      <div id="resultado-caja" class="p-6 rounded-xl border">
+        <!-- Contenido inyectado por JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Enlace al script externo -->
+  <script src="./static/app.js"></script>
+</body>
+</html>
